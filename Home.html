@@ -20,14 +20,16 @@
     <header>
         <!-- Header with the search area -->
         <div class="title">
-        <h1><a class="active" href="#home">Good Things</a></h1>
-            <div class="search-container">
-                <form action="home.html">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit">Search</button>
-                </form>
-            </div>
+            <a class="active" href="#home" id="logo">
+            <img src="images/logo.PNG" alt="HTML tutorial">
+            </a>
+            
+            <form action="home.html">
+                <input class="search" type="text" placeholder="Search.." name="search" id="search-area">
+                <button class="search" type="submit" id="search-button">Search</button>
+            </form>
         </div>
+        
         
         <!-- Mage menu-->
         <nav>   
@@ -37,10 +39,8 @@
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
-                        <div class="header">
-                            <h2>Products</h2>
-                        </div>
                         <div class="row">
+                            <h2>Products</h2>
                             <div class="column">
                                 <a href="#">Alumni Gifts</a>
                                 <a href="#">Bags</a>
@@ -91,7 +91,7 @@
                 </div>
                 
                 <div class="dropdown">
-                    <button class="dropbtn">CONTACT US
+                    <button class="dropbtn" id="contact">CONTACT US
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
@@ -175,11 +175,49 @@
         </div>
 
         <div id="BestSellers" class="tabcontent">
+            <div class="card">
+                <img src="images/product1.PNG" alt="Cutton Socks" style="width:100%">
+                <h3>Cutton Socks</h3>
+                <p class="price">from $4.91</p>
+                <p>Min Qty: 100</p>
+            </div>
             
+            <div class="card">
+                <img src="images/product2.PNG" alt="Logan Bag" style="width:100%">
+                <h3>Logan Bag</h3>
+                <p class="price">from $1.50</p>
+                <p>Min Qty: 1000</p>
+            </div>
+            
+            <div class="card">
+                <img src="images/product3.PNG" alt="Unbrella" style="width:100%">
+                <h3>Unbrella</h3>
+                <p class="price">from $44.30</p>
+                <p>Min Qty: 25</p>
+            </div>
         </div>
 
         <div id="ExpressProduct" class="tabcontent">
+            <div class="card">
+                <img src="images/product1.PNG" alt="Cutton Socks" style="width:100%">
+                <h3>Cutton Socks</h3>
+                <p class="price">from $4.91</p>
+                <p>Min Qty: 100</p>
+            </div>
             
+            <div class="card">
+                <img src="images/product2.PNG" alt="Logan Bag" style="width:100%">
+                <h3>Logan Bag</h3>
+                <p class="price">from $1.50</p>
+                <p>Min Qty: 1000</p>
+            </div>
+            
+            <div class="card">
+                <img src="images/product3.PNG" alt="Unbrella" style="width:100%">
+                <h3>Unbrella</h3>
+                <p class="price">from $44.30</p>
+                <p>Min Qty: 25</p>
+            </div>
         </div>
     </div>
     
@@ -187,6 +225,100 @@
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
+    
+    <!-- sliding customer review -->
+    <h2 style="margin-top: 50px; text-align: center">What our clients say</h2>
+    <div class="scroll-container">
+        <div class="scroll-content">
+            <p><b>MK M.</b></p>
+            <p>Worked with Ebony and Anne to get some tshirts and caps made for the restaurant I work at. They were very flexible and accomodating to the multiple requests I had. Very happy with the final products. Tshirts are buttery soft and the embroidery is top notch. Great price for excellent quality. Production and delivery was super quick too. Would be buying from Good Things again.</p>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".scroll-container").on("mousewheel", function(e) {
+                e.preventDefault();
+                var wheelDelta = e.originalEvent.wheelDelta;
+                var scrollTop = this.scrollTop;
+                this.scrollTop = scrollTop - wheelDelta;
+            });
+        });
+    </script>
+    
+    
+    <!-- Product swatch sections -->
+    <h2 style="margin-top: 50px; text-align: center">Our Brandable Products</h2>
+    <div class="container">
+        <img src="images/product4.PNG" class="image" style="width:500px">
+        <div class="middle">
+            <div class="text">Great of conferences and events</div>
+        </div>
+    </div>
+    
+    
+    
+    <!-- Expandable Questions-->
+    <div class="container-fluid" style="margin-top: 50px; text-align: center">
+    <h3>We’ve answered your Good FAQs.</h3>
+    <div class="accordion" id="expandable-questions">
+      <div class="card">
+        <div class="card-header" id="question1">
+          <h5 class="mb-0">
+            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
+              aria-controls="collapse1">
+              What services does Good Things provide?
+            </button>
+          </h5>
+        </div>
+
+        <div id="collapse1" class="collapse show" aria-labelledby="question1" data-parent="#expandable-questions">
+          <div class="card-body">
+            Our products are made with all-natural and organic ingredients sourced from sustainable farms and
+            suppliers. We prioritize using high-quality ingredients that are safe and effective for your skin.
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-header" id="question2">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2"
+                aria-expanded="false" aria-controls="collapse2">
+                Question 2: How can I place an order?
+              </button>
+            </h5>
+          </div>
+          <div id="collapse2" class="collapse" aria-labelledby="question2" data-parent="#expandable-questions">
+            <div class="card-body">
+              You can easily place an order on our website by selecting the products you want to purchase, adding
+              them to your cart, and proceeding to checkout. We offer a secure and convenient online ordering
+              process.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="question3">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse3"
+                aria-expanded="false" aria-controls="collapse3">
+                Question 3: What is your return policy?
+              </button>
+            </h5>
+          </div>
+          <div id="collapse3" class="collapse" aria-labelledby="question3" data-parent="#expandable-questions">
+            <div class="card-body">
+              We have a 30-day return policy for unused and unopened products. If you are not satisfied with your
+              purchase, please contact our customer support team to initiate a return and refund process.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
     
     
 </body>
