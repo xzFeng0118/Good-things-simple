@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- jQuery library -->
@@ -28,46 +29,8 @@
             </div>
         </div>
         
-        <!-- Hover Dropdown nav bar -> Mage menu-->
-        <nav>
-            <!--<div class="dropdown">
-                <button class="dropbtn">All Products</button>
-                <div class="dropdown-content">
-                    <h3>Products</h3>
-                    <a href="#">Alumni Gifts</a>
-                    <a href="#">Bags</a>
-                    <a href="#">Bespoke</a>
-                </div>
-            </div>
-        
-            <div class="dropdown">
-                <button class="dropbtn">Bags</button>
-                <div class="dropdown-content">
-                    <a href="#">Tote Bags</a>
-                    <a href="#">Backpacks & Backsacks</a>
-                    <a href="#">Bag Tags</a>
-                </div>
-            </div>
-            
-            <div class="dropdown">
-                <button class="dropbtn">Caps & hats</button>
-                <div class="dropdown-content">
-                    <a href="#">Beanies</a>
-                    <a href="#">Bucket Hats</a>
-                    <a href="#">Panel Caps</a>
-                </div>
-            </div>
-            
-            <div class="dropdown">
-                <button class="dropbtn">CONTACT US</button>
-                <div class="dropdown-content">
-                    <button class="email">EMAIL US</button>
-                    <p>If you'd like to chat please call:
-                        123456789<br />
-                    For assistance with your order, select Option 2.</p>
-                </div>
-            </div>-->
-            
+        <!-- Mage menu-->
+        <nav>   
             <div class="navbar">
                 <div class="dropdown">
                     <button class="dropbtn">All Products
@@ -146,6 +109,7 @@
         </nav>
     </header>
     
+    <!-- Main banner sliders -->
     <div id="demo" class="carousel slide" data-ride="carousel">
 
         <!-- Indicators -->
@@ -177,9 +141,52 @@
         </a>
     </div>
     
+    <!-- product switching tabs -->
+    <div class="container-fluid">
+        <!-- Tab links -->
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'LatestProducts')" id="defaultOpen">Latest Products</button>
+            <button class="tablinks" onclick="openTab(event, 'BestSellers')">Best Sellers</button>
+            <button class="tablinks" onclick="openTab(event, 'ExpressProduct')">Express Product</button>
+        </div>
+
+        <!-- Tab content -->
+        <div id="LatestProducts" class="tabcontent">
+            <div class="card">
+                <img src="images/product1.PNG" alt="Cutton Socks" style="width:100%">
+                <h3>Cutton Socks</h3>
+                <p class="price">from $4.91</p>
+                <p>Min Qty: 100</p>
+            </div>
+            
+            <div class="card">
+                <img src="images/product2.PNG" alt="Logan Bag" style="width:100%">
+                <h3>Logan Bag</h3>
+                <p class="price">from $1.50</p>
+                <p>Min Qty: 1000</p>
+            </div>
+            
+            <div class="card">
+                <img src="images/product3.PNG" alt="Unbrella" style="width:100%">
+                <h3>Unbrella</h3>
+                <p class="price">from $44.30</p>
+                <p>Min Qty: 25</p>
+            </div>
+        </div>
+
+        <div id="BestSellers" class="tabcontent">
+            
+        </div>
+
+        <div id="ExpressProduct" class="tabcontent">
+            
+        </div>
+    </div>
     
-    
-    
+    <script>
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
     
     
 </body>
