@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Home</title>
     <link rel="stylesheet" href="style.css">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -16,7 +16,60 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-    
+    <header>
+        <!-- Header with the search area -->
+        <div class="title">
+        <h1><a class="active" href="#home">Good Things</a></h1>
+            <div class="search-container">
+                <form action="home.html">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Hover Dropdown nav bar -->
+        <nav>
+            <div class="dropdown">
+                <button class="dropbtn">All Products</button>
+                <div class="dropdown-content">
+                    <h3>Products</h3>
+                    <a href="#">Alumni Gifts</a>
+                    <a href="#">Bags</a>
+                    <a href="#">Bespoke</a>
+                </div>
+            </div>
+        
+            <div class="dropdown">
+                <button class="dropbtn">Bags</button>
+                <div class="dropdown-content">
+                    <a href="#">Tote Bags</a>
+                    <a href="#">Backpacks & Backsacks</a>
+                    <a href="#">Bag Tags</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="dropbtn">Caps & hats</button>
+                <div class="dropdown-content">
+                    <a href="#">Beanies</a>
+                    <a href="#">Bucket Hats</a>
+                    <a href="#">Panel Caps</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button class="dropbtn">CONTACT US</button>
+                <div class="dropdown-content">
+                    <button class="email">EMAIL US</button>
+                    <p>If you'd like to chat please call:
+                        123456789<br />
+                    For assistance with your order, select Option 2.</p>
+                </div>
+            </div>
+        </nav>
+        
+    </header>
     
     
 </body>
