@@ -20,11 +20,11 @@
     <header>
         <!-- Header with the search area -->
         <div class="title">
-            <a class="active" href="#home" id="logo">
+            <a class="active" href="#home" id="logo" style="display: inline;">
             <img src="images/logo.PNG" alt="HTML tutorial">
             </a>
             
-            <form action="home.html">
+            <form action="home.html" style="display: inline; float:right;margin-right: 300px ">
                 <input class="search" type="text" placeholder="Search.." name="search" id="search-area">
                 <button class="search" type="submit" id="search-button">Search</button>
             </form>
@@ -39,12 +39,14 @@
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
-                        <div class="row">
+                        <div class="header">
                             <h2>Products</h2>
+                        </div>
+                        <div class="row">
                             <div class="column">
                                 <a href="#">Alumni Gifts</a>
                                 <a href="#">Bags</a>
-                                <a href="#">Bespoke</a>
+                                <a href="#">Bespoke Products</a>
                             </div>
                             <div class="column">
                                 <a href="#">Caps & Hats</a>
@@ -52,9 +54,9 @@
                                 <a href="#">Confectionery</a>
                             </div>
                             <div class="column">
-                                <a href="#">Conferences & Events</a>
                                 <a href="#">Corporate Gifts</a>
-                                <a href="#">Custom Mug</a>
+                                <a href="#">Custom Mugs</a>
+                                <a href="#">Eco Friendly</a>
                             </div>
                         </div>
                     </div>
@@ -68,15 +70,15 @@
                         <div class="row">
                             <div class="column">
                                 <a href="#">Tote Bags</a>
-                                <a href="#">Backpacks & Backsacks</a>
                                 <a href="#">Bag Tags</a>
+                                <a href="#">Cooler Bags</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="dropdown">
-                    <button class="dropbtn">Caps & hats
+                    <button class="dropbtn">Caps & Hats
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
@@ -91,16 +93,31 @@
                 </div>
                 
                 <div class="dropdown">
+                    <button class="dropbtn">Clothing & Apparel
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <div class="row">
+                            <div class="column">
+                                <a href="#">T-shirts</a>
+                                <a href="#">Custom Socks</a>
+                                <a href="#">Polo Shirts</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dropdown">
                     <button class="dropbtn" id="contact">CONTACT US
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
                         <div class="row">
                             <div class="column">
-                                <button class="email">EMAIL US</button>
-                                <p>If you'd like to chat please call:<br />
-                                    123456789<br />
-                                For assistance with your order, select Option 2.</p>
+                                <button class="email">EMAIL US</button><br />
+                                Please note most of our products have a minimum qty of 20+ units. If you'd like to chat call:<br />
+                                <B>12345678</B><br />
+                                For assistance select Option 2.
                             </div>
                         </div>
                     </div>
@@ -144,30 +161,30 @@
     <!-- product switching tabs -->
     <div class="container-fluid">
         <!-- Tab links -->
-        <div class="tab">
+        <div class="tab" style="text-align: center">
             <button class="tablinks" onclick="openTab(event, 'LatestProducts')" id="defaultOpen">Latest Products</button>
             <button class="tablinks" onclick="openTab(event, 'BestSellers')">Best Sellers</button>
             <button class="tablinks" onclick="openTab(event, 'ExpressProduct')">Express Product</button>
         </div>
 
         <!-- Tab content -->
-        <div id="LatestProducts" class="tabcontent">
-            <div class="card">
-                <img src="images/product1.PNG" alt="Cutton Socks" style="width:100%">
+        <div id="LatestProducts" class="tabcontent" style="display: flex; width= 100%">
+            <div class="card" style="display: inline">
+                <img src="images/product1.PNG" alt="Cutton Socks" style="width:300px">
                 <h3>Cutton Socks</h3>
                 <p class="price">from $4.91</p>
                 <p>Min Qty: 100</p>
             </div>
             
-            <div class="card">
-                <img src="images/product2.PNG" alt="Logan Bag" style="width:100%">
+            <div class="card" style="display: inline">
+                <img src="images/product2.PNG" alt="Logan Bag" style="width:300px">
                 <h3>Logan Bag</h3>
                 <p class="price">from $1.50</p>
                 <p>Min Qty: 1000</p>
             </div>
             
-            <div class="card">
-                <img src="images/product3.PNG" alt="Unbrella" style="width:100%">
+            <div class="card" style="display: inline">
+                <img src="images/product3.PNG" alt="Unbrella" style="width:300px">
                 <h3>Unbrella</h3>
                 <p class="price">from $44.30</p>
                 <p>Min Qty: 25</p>
@@ -260,14 +277,14 @@
     
     
     <!-- Expandable Questions-->
-    <div class="container-fluid" style="margin-top: 50px; text-align: center">
+    <div class="container-fluid" style="margin-top: 50px; text-align: center;">
     <h3>We’ve answered your Good FAQs.</h3>
-    <div class="accordion" id="expandable-questions">
+    <div class="accordion" id="expandable-questions" style="display: grid; grid-template-columns: repeat(2, 1fr);">
       <div class="card">
         <div class="card-header" id="question1">
           <h5 class="mb-0">
             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
-              aria-controls="collapse1">
+              aria-controls="collapse1" style="width: 100%; height:60px">
               What services does Good Things provide?
             </button>
           </h5>
@@ -284,16 +301,14 @@
           <div class="card-header" id="question2">
             <h5 class="mb-0">
               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse2"
-                aria-expanded="false" aria-controls="collapse2">
-                Question 2: How can I place an order?
+                aria-expanded="false" aria-controls="collapse2" style="width: 100%; height:60px">
+                What is a vector file?
               </button>
             </h5>
           </div>
           <div id="collapse2" class="collapse" aria-labelledby="question2" data-parent="#expandable-questions">
             <div class="card-body">
-              You can easily place an order on our website by selecting the products you want to purchase, adding
-              them to your cart, and proceeding to checkout. We offer a secure and convenient online ordering
-              process.
+              A vector file is a type of file that allows our design team to directly edit your artwork; this is usually through an .eps or Adobe Illustrator file. We highly recommend you read our Guide to Merchandise Lingo blog for more information about this.
             </div>
           </div>
         </div>
@@ -302,15 +317,14 @@
           <div class="card-header" id="question3">
             <h5 class="mb-0">
               <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse3"
-                aria-expanded="false" aria-controls="collapse3">
-                Question 3: What is your return policy?
+                aria-expanded="false" aria-controls="collapse3" style="width: 100%; height:60px">
+                Why should I use promotional products?
               </button>
             </h5>
           </div>
           <div id="collapse3" class="collapse" aria-labelledby="question3" data-parent="#expandable-questions">
             <div class="card-body">
-              We have a 30-day return policy for unused and unopened products. If you are not satisfied with your
-              purchase, please contact our customer support team to initiate a return and refund process.
+              Promotional products are functional and usable pieces of advertising in the possession of your customers. Almost every household will have a branded tote bag or branded drink bottles that they regularly use. Whether it’s branded plastic pens, branded tote bags, branded notebooks or something more premium like custom golf umbrellas, high-quality branded portable chargers and branded reusable coffee cups — there is something for everyone when it comes to promotional gift ideas. If you want something that’s better for the environment, then look at our eco-friendly promotional products — better for you, better for your business and better for Earth.
             </div>
           </div>
         </div>
