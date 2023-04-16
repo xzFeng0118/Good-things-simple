@@ -62,22 +62,10 @@ include ('session.php');
                 </div>
                 <div class="modal-body">
                     <form role = "form" class="regiForm" action = "register_engine.php" method = "post">
-                        <!-- <div class="form-row col-12">
-                            <label for="inputaccess">Are you registering as a client or host?</label>
-                            <select id="regiaccess" name = "regiaccess"  class="form-control">
-                                <option disabled id="regiaccess" name = "regiaccess">Select your choice</option>
-                                <option id="regiaccess" name = "regiaccess" value="host">host</option>
-                                <option id="regiaccess" name = "regiaccess" value="client">client</option>
-                            </select>
-                        </div> -->
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="regifname">First Name</label>
-                                <input class = "form-control" type="text" id="regifname" name = "regifname" placeholder="Enter your first name">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="regilname">Last Name</label>
-                                <input class = "form-control" type="text" id="regilname" name = "regilname" placeholder="Enter your last name">
+                                <label for="regifname">User Name</label>
+                                <input class = "form-control" type="text" id="username" name = "username" placeholder="Enter your user name">
                             </div>
                         </div>
                         <div class="form-row">
@@ -109,13 +97,160 @@ include ('session.php');
             </div>
         </div>
     </div>
-
     
-
-
-
-
-    <?php include ('login.php'); ?>
-    <script type="text/javascript" src = "script.js"></script>
+    <?php if($session_id !== ""){ ?>
+        <div class="product">
+        <h1>Products</h1><br><br>
+        <table class="table table-bordered table-striped">
+            <?php
+            $query = "SELECT * FROM products";
+            $result= $mysqli->query($query);
+            while($row = mysqli_fetch_array($result)){
+            ?>
+            <thead>
+                <th>Productname</th>
+                <th>code</th>
+                <th>price</th>
+                <th>color</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><?php echo $row ['name'] ;?></td>
+                    <td><?php echo $row ['code'] ;?></td>
+                    <td><?php echo $row ['price'] ;?></td>
+                    <td><?php echo $row ['color'] ;?></td>
+                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button></td>
+                    <td><a href="process.php?delete=" class = "btn btn-danger"> Delete</a></td>
+                </tr>
+            </tbody>
+            <?php };
+            ?>
+        </table>
+        </div>
+    <?php }?>
+    
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add</button>
+    
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
+    
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">Delete</button>
+    
+    <!-- Add product Modal Form -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Product</h5>
+                </div>
+                <div class="modal-body">
+                    <form role = "form" class="addForm" action = "add.php" method = "post">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="addname">Product Name</label>
+                                <input class = "form-control" type="text" id="addname" name = "addname" placeholder="Enter the product name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="addcode">Code</label>
+                                <input class = "form-control" type="text" id="addcode" name = "addcode" placeholder="Enter code">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="addprice">Price</label>
+                                <input class = "form-control" type="text" id="addprice" name = "addprice" placeholder="Enter the price of the product">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="addcolor">Color</label>
+                                <input class = "form-control" type="text" id="addcolor" name = "addcolor" placeholder="Color">
+                            </div>
+                            
+                        </div>
+                        
+                            <p><span id = "msg"></span></p>
+                            <button type="button" class="btn btn-secondary col-3" data-dismiss="modal">Cancel</button>
+                            <button class = "btn btn-primary col-3 float-right" type = "submit" id = "add" name = "add">Add</button>
+                    </form>
+                </div>             
+            </div>
+        </div>
+    </div>
+    
+    <!-- Edit product Modal Form -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Product</h5>
+                </div>
+                <div class="modal-body">
+                    <form role = "form" class="editForm" action = "edit.php" method = "post">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="editname">Product Name</label>
+                                <input class = "form-control" type="text" id="editname" name = "editname" placeholder="Edit the product name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="addcode">Code</label>
+                                <input class = "form-control" type="text" id="editcode" name = "editcode" placeholder="Enter code">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="editprice">Price</label>
+                                <input class = "form-control" type="text" id="editprice" name = "editprice" placeholder="Edit the price of the product">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="editcolor">Color</label>
+                                <input class = "form-control" type="text" id="editcolor" name = "editcolor" placeholder="Color">
+                            </div>
+                            
+                        </div>
+                        
+                            <p><span id = "msg"></span></p>
+                            <button type="button" class="btn btn-secondary col-3" data-dismiss="modal">Cancel</button>
+                            <button class = "btn btn-primary col-3 float-right" type = "submit" id = "edit" name = "edit">Update</button>
+                    </form>
+                </div>             
+            </div>
+        </div>
+    </div>
+    
+    <!-- Delete product Modal Form -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Product</h5>
+                </div>
+                <div class="modal-body">
+                    <form role = "form" class="deleteForm" action = "delete.php" method = "post">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="delname">Product Name</label>
+                                <input class = "form-control" type="text" id="delname" name = "delname" placeholder="Which product you want to delete">
+                            </div>
+                        </div>
+                        
+                            <p><span id = "msg"></span></p>
+                            <button type="button" class="btn btn-secondary col-3" data-dismiss="modal">Cancel</button>
+                            <button class = "btn btn-primary col-3 float-right" type = "submit" id = "delete" name = "delete">Delete</button>
+                    </form>
+                </div>             
+            </div>
+        </div>
+    </div>
+    
+    
+    <form action="search.php" method="GET">
+	   <input type="text" name="search" />
+	   <input type="submit" id="search" value="Search" />
+    </form>
+    
+    
+    
 </body>
 </html>
