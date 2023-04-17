@@ -301,9 +301,18 @@ include ('session.php');
     </div>
     
     <?php if($session_id !== ""){ ?>
-    <form action="search.php" method="POST">
-	   <input type="text" name="search" />
-	   <input type="submit" id="search" value="Search" />
+    
+    <form role = "form" class="searchForm" action = "searchresult.php" method = "post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="searchcontent">Search</label>
+                <input class = "form-control" type="text" id="searchcontent" name = "searchcontent" placeholder="Search...">
+            </div>
+        </div>
+                        
+        <p><span id = "msg"></span></p>
+        <button type="button" class="btn btn-secondary col-3" data-dismiss="modal">Cancel</button>
+        <button class = "btn btn-primary col-3 float-right" type = "submit" id = "search" name = "search">Search</button>
     </form>
     <?php } ?>
     
