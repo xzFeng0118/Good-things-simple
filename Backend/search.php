@@ -1,6 +1,7 @@
 <?php
 include ('db_conn.php');
 include ('session.php');
+$mysqli = new mysqli("localhost", "root", "", "goodthings");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,19 +57,22 @@ include ('session.php');
 
 
   
-if (isset($_GET['search'])){
-    $name = $_GET['search'];
-  
-}
+    $output ='';
 
+    //collect
+    if (isset($_POST['search'])){
+        $searchq = $_POST['search'];
+        $name = $_POST['search'];
+        $searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
+        $search = "SELECT * FROM products WHERE name LIKE '%$searchq%'";
+        $mysqli->query($search);
 
-  $search = "SELECT * FROM products
-			WHERE (`name` LIKE '%".$name."%')" or die(mysql_error());
+                $output .= '<div>'.$name.'</div>';
+            }
+        
+    
+    
 
-
-  $mysqli->query($search);
-
-    echo "<p>" $search "</p>";
 		
 	
  ?>
