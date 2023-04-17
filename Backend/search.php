@@ -1,7 +1,6 @@
 <?php
 include ('db_conn.php');
 include ('session.php');
-$mysqli = new mysqli("localhost", "root", "", "goodthings");
 ?>
 <!DOCTYPE html>
 <html lang="en">

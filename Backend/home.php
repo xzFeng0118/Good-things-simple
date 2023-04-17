@@ -183,11 +183,13 @@ include ('session.php');
         </div>
     <?php }?>
     
+    <?php if($session_id !== ""){ ?>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add</button>
     
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">Edit</button>
     
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">Delete</button>
+     <?php }?>
     
     <!-- Add product Modal Form -->
     <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -298,11 +300,12 @@ include ('session.php');
         </div>
     </div>
     
-    
+    <?php if($session_id !== ""){ ?>
     <form action="search.php" method="POST">
 	   <input type="text" name="search" />
 	   <input type="submit" id="search" value="Search" />
     </form>
+    <?php } ?>
     
     
     
